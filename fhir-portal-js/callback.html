@@ -1,0 +1,20 @@
+<!-- callback.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMART on FHIR Callback</title>
+</head>
+<body>
+  <h1>Loading...</h1>
+
+  <script src="https://unpkg.com/fhirclient@2.5.7/lib/fhir-client.js"></script>
+  <script>
+    FHIR.oauth2.ready(function(client) {
+      // After authentication, redirect to the main app
+      window.location.href = "/";
+    });
+  </script>
+</body>
+</html>

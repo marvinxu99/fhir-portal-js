@@ -1,0 +1,17 @@
+{
+  "name": "smart-on-fhir-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "fhirclient": "^2.5.4"
+  }
+}
