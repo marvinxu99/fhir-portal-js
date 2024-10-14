@@ -4,6 +4,9 @@ const path = require('path');
 const session = require('express-session'); 
 const https = require('https');
 const fs = require('fs');
+const axios = require('axios');
+const querystring = require('querystring');
+
 
 const app = express();
 
@@ -24,6 +27,7 @@ app.use(session({
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // Route for the OAuth callback page
 app.get('/callback', (req, res) => {
   res.sendFile(path.join(__dirname, 'callback.html'));
@@ -35,6 +39,6 @@ app.get('/', (req, res) => {
 
 // Start the server
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+https.createServer(sslOptions, app).listen(port, () => {
   console.log(`Server running with HTTPS on https://localhost:${port}`);
 });
