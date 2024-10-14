@@ -11,10 +11,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
   <script>
-    FHIR.oauth2.ready(function(client) {
-      // After authentication, redirect to the main app
-      window.location.href = "/";
-    });
+    // Ensure the function runs only after the window has fully loaded
+    window.onload = function() {
+      FHIR.oauth2.ready().then(function(client) {
+        
+        // console.log("FHIR OAuth2 client is ready");
+        // Redirect to the main app
+        window.location.href = "/";
+
+      }, function(error) {
+        
+        console.error("Error during OAuth2 flow:", error);
+        // Display error message on the page
+        document.body.innerHTML = "<h1>Error: " + error.message + "</h1>";
+      
+      });
+    };
   </script>
 </body>
 </html>
